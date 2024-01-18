@@ -18,27 +18,70 @@ while isActive:
     
     op = int(input("---"))
     if(op == 1):
-        os.system('cls')
-        nombre = input("Ingrese el nombre del equipo: ")
-        equipos.append([nombre,0,0,0,0,0,0,0])
-        print(equipos[0])
-        os.system('pause')
-        
+        if(len(equipos) > 0):
+            os.system('cls')
+            noExiste = True
+            while noExiste:
+                os.system('cls')
+                noExiste = False
+                nombre = input("Ingrese el nombre del equipo: ")
+                for i, item in enumerate (equipos):
+                    if(nombre in item):
+                        print("Equipo ya agregado anteriormente")
+                        noExiste = True
+                        os.system('pause')
+            equipos.append([nombre, 0, 0, 0, 0, 0, 0 ,0])
+        else:
+            os.system('cls')
+            nombre = input("Ingrese el nombre del equipo: ")
+            equipos.append([nombre, 0, 0, 0, 0, 0, 0 ,0])
+            
+                        
+                    
+                    
     elif(op == 2):
-        os.system('cls')
-        eqLo = input("Ingrese el nombre del equipo local: ")
-        punLo = int(input("Ingrese los goles anotados por el equipo locar: "))
         
-        for i,equipo in enumerate(equipos):
-            pass
-        
-        eqVi = input("Ingrese el nombre del equipo visitante: ")
-        punVi = int(input("Ingrese los goles anotados por el equipo visitante: "))
-        
-        
+        if(len(equipos)>0):
+            teamEncontrado = False
+            os.system('cls')
+            
+            eqLo = ""
+            eqVi = ""
+            
+            while not teamEncontrado:
+                os.system('cls')
+                eqLo = input("Ingrese el nombre del equipo local: ")
+                for i, team in enumerate (equipos):
+                    if(eqLo in team):
+                        punLo = int(input("Ingrese los goles anotados por el equipo local: "))
+                        teamEncontrado = True
+                if (not teamEncontrado):
+                    print("El equipo ingresado no esta registrado....")
+                    os.system('pause')
+                
+            teamEncontrado = False
+            
+            while not teamEncontrado: 
+                os.system('cls')
+                eqVi = input("Ingrese el nombre del equipo visitante: ")
+                for i, team in enumerate(equipos):
+                    if(eqVi in team):
+                        punVi = int(input("Ingrese los goles anotados por el equipo visitante: "))
+                        teamEncontrado = True
+                if (not teamEncontrado):
+                    print("El equipo ingresado no esta registrado....")
+                    os.system('pause')
+                
+                    
+        else:
+            print("No hay equipos registrados hasta el momento...")
+            os.system('pause')
+
         
     elif(op == 3):
         os.system('cls')
         
     else:
-        os.system('cls')
+        print(equipos)
+        os.system('pause')
+        

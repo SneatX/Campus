@@ -148,7 +148,6 @@ while isActive:
     #OPCION NUMERO 3
     elif(op == 3):
         os.system('cls')
-        print(tabulate(equipos, headers=["Nombre" , "Partidos jugados" , "Partidos ganados", "Partidos perdidos", "Partidos empatados", "goles a favor", "goles en contra", "total puntos"]))
         opcionesReportes = """
             1. Nombre del equipo que mas goles anoto
             2. Nombre del equipo que mas puntos tiene
@@ -160,23 +159,28 @@ while isActive:
         print(opcionesReportes)
         opReporte = int(input("Que reporte desea revisar?: "))
         if(opReporte == 1):
-            mayor = -1
-            indicesEquipos = []
-            for i in range (len(equipos)):
-                if(equipos[i][5] > mayor):
-                    mayor = equipos[i][5]
-            
-                
+            indice = 5 #indice donde se almacenan los goles de los equipos
         elif (opReporte == 2):
-            pass
+            indice = 7 #indice donde se almacenan puntos de cada equipo
         elif (opReporte == 3):
-            pass
+            indice = 2 #indice donde se almacenan los partidos ganados
         elif (opReporte == 4):
             pass
         elif (opReporte == 5):
             pass
         elif (opReporte == 6):
             pass
+        
+        listaOrdenada = equipos
+        for i in range (len(listaOrdenada)):
+            for j in range(i+1):
+                if(listaOrdenada[i][indice] > listaOrdenada[j][indice]):
+                    aux = listaOrdenada[j]
+                    listaOrdenada[j] = listaOrdenada[i]
+                    listaOrdenada[i] = aux
+                    
+        os.system('cls')
+        print(tabulate(listaOrdenada, headers=["Nombre" , "Partidos jugados" , "Partidos ganados", "Partidos perdidos", "Partidos empatados", "goles a favor", "goles en contra", "total puntos"]))
     else:
         print(equipos)
         os.system('pause')

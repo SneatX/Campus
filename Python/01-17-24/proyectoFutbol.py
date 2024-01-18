@@ -15,30 +15,29 @@ while isActive:
     os.system('cls')
     print(title)
     print(options)
-    
     op = int(input("---"))
+    
+    #OPCION NUMERO 1
     if(op == 1):
-        if(len(equipos) > 0):
+        if(len(equipos) > 0): #Evaluar si la lista tiene mas de 0 nombres
             os.system('cls')
-            noExiste = True
-            while noExiste:
+            noExiste = True #inicia en true para entrar al while
+            while noExiste: #While en caso de repetir un nombre intentarlo de nuevo
                 os.system('cls')
-                noExiste = False
+                noExiste = False#se cambia a false para en caso de no encontrar nombres repetidos, finalizar el whilr
                 nombre = input("Ingrese el nombre del equipo: ")
-                for i, item in enumerate (equipos):
+                for i, item in enumerate (equipos): #evaluamos si el nombre se encuentra en la lista
                     if(nombre in item):
                         print("Equipo ya agregado anteriormente")
-                        noExiste = True
+                        noExiste = True #En caso de estar en la lista cambia el valor a True para entrar al while nuevamente
                         os.system('pause')
-            equipos.append([nombre, 0, 0, 0, 0, 0, 0 ,0])
-        else:
+            equipos.append([nombre, 0, 0, 0, 0, 0, 0 ,0]) #Una vez se salga del while se inserta en la lista
+        else: #En caso de no haber nombres en la lista no es necesario validar si el nombre esta repetido
             os.system('cls')
             nombre = input("Ingrese el nombre del equipo: ")
             equipos.append([nombre, 0, 0, 0, 0, 0, 0 ,0])
-            
-                        
                     
-                    
+    #OPCION NUMERO 2                  
     elif(op == 2):
         
         if(len(equipos)>0):
@@ -77,7 +76,7 @@ while isActive:
             print("No hay equipos registrados hasta el momento...")
             os.system('pause')
 
-        
+    #OPCION NUMERO 3
     elif(op == 3):
         os.system('cls')
         

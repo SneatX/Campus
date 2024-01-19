@@ -182,6 +182,10 @@ while isActive:
             os.system('cls')
             print("Gracias por utilizar el programa :3")
             os.system('pause')
+    else:
+        print("Opcion ingresada invalida")
+        os.system('pause')
+        
         
         
         

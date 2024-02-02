@@ -1,6 +1,6 @@
 import os
 
-from modules.variables import save, getAll, trainers
+from modules.variables import trainers
 from modules.funSearch import search
 
 def update():

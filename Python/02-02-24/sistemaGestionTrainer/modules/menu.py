@@ -1,6 +1,6 @@
 import os
 
-from modules.variables import save, getAll, guardarJson
+from modules.variables import guardarJson
 from modules.funCreate import create
 from modules.funSearch import search
 from modules.funDelete import delete
@@ -46,6 +46,7 @@ def menu():
 
         except ValueError:
             print("Incorrect")
+            os.system("pause")
 
 
     

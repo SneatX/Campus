@@ -23,7 +23,7 @@ def search(codigo = None):
         os.system("pause")
 
     else:        
-        val = getAll(codigo-1) 
+        val = getAll(codigo)
         print(f"""
         Codigo: {val.get("Codigo")}
         Nombre: {val.get("Nombre")}
